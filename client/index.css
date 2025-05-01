@@ -1,0 +1,47 @@
+body {
+    background-color: #f9f9f6;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: #7D9D87;
+    color: white;
+    padding-top: 1rem;
+}
+
+.sidebar button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+.sidebar button:hover {
+    background-color: #B0C9A5;
+    color: #fff;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.form-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.table thead {
+    background-color: #e8f
+}
