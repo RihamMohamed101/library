@@ -1,4 +1,7 @@
 import { Book } from "../../database/models/books.models.js"
+import { ApiFeature } from "../api.js"
+import qs from 'qs';
+
 
 
 
@@ -8,8 +11,14 @@ export const addBook = async(req, res) => {
     res.status(201).json({message:"success"})
 }
 
-export const allBook = async(req, res) => {
-    const books = await Book.find()
+export const allBook = async (req, res) => {
+     
+    const parsedQuery = qs.parse(req._parsedUrl.query); // بدل req.query
+    const apiFeature = new ApiFeature(Book.find(), parsedQuery);
+    apiFeature.filter().sort().search()
+
+    let books = await apiFeature.mongooseQuery;
+    
     res.status(200).json({message:"sucsses" , books})
 }
 

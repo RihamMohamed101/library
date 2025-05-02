@@ -1,0 +1,36 @@
+
+ //books 
+
+ http://localhost:3000/book => all book 
+ http://localhost:3000/book?yearPublished[lt]=2004 => query to find all book published before 2004
+ http://localhost:3000/book?yearPublished[lte]=2004 => query to find all book published  from 2004 and before year
+ http://localhost:3000/book?yearPublished[gt]=2004
+ http://localhost:3000/book?yearPublished[gte]=2004
+ http://localhost:3000/book?sort=author => sort on author
+ http://localhost:3000/book?sort=title
+ http://localhost:3000/book?sort=yearPublished
+ http://localhost:3000/book?search=book1 => ALL BOOKS have same title 
+ http://localhost:3000/book?search=Ri => all books have same author 
+ http://localhost:3000/book?search=2000 => all books at same year 
+
+
+
+//member 
+
+http://localhost:3000/member
+http://localhost:3000/member?sort=fullName
+http://localhost:3000/member?sort=joinYear => sort based on year
+http://localhost:3000/member?search=2002 
+http://localhost:3000/member?search=student => that have same membershipType 
+http://localhost:3000/member?search=Riham  => that have same fullName 
+http://localhost:3000/member?joinYear[gt]=2002
+http://localhost:3000/member?joinYear=2002
+
+
+
+//browsing
+
+http://localhost:3000/borrow
+http://localhost:3000/borrow?search=book2 => search bookTitle
+http://localhost:3000/borrow?search=Riham => search Member name 
+http://localhost:3000/borrow?sort=borrowDate => sort based on date 
