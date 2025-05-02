@@ -154,7 +154,7 @@ const borrowTable = document.getElementById('borrowTable');
 const borrowMember = document.getElementById('borrowMember');
 const borrowBook = document.getElementById('borrowBook');
 
-// 🟦 تحميل الأعضاء والكتب لقائمة الاختيار
+
 function loadBorrowFormData() {
   fetch('http://localhost:3000/member')
     .then(res => res.json())
@@ -168,12 +168,15 @@ function loadBorrowFormData() {
   fetch('http://localhost:3000/book')
     .then(res => res.json())
     .then(data => {
+      allBooks = data.books;
       borrowBook.innerHTML = '<option value="">اختر كتاب</option>';
       data.books.forEach(b => {
         borrowBook.innerHTML += `<option value="${b._id}">${b.title}</option>`;
       });
     });
 }
+
+
 
 // 🟩 إضافة استعارة جديدة
 function submitBorrowing(e) {
@@ -226,8 +229,8 @@ function updateReturnDate(id) {
 function addBorrowRow(b) {
   const row = document.createElement('tr');
   row.innerHTML = `
-    <td>${b.member?.fullName || '---'}</td>
-    <td>${b.book?.title || '---'}</td>
+    <td>${b.memberName || '---'}</td>
+    <td>${b.bookTitle || '---'}</td>
     <td>${new Date(b.borrowDate).toLocaleDateString()}</td>
     <td>${b.returnDate ? new Date(b.returnDate).toLocaleDateString() : '—'}</td>
     <td>
@@ -241,3 +244,9 @@ function addBorrowRow(b) {
 // عند التحميل
 loadBorrowFormData();
 loadBorrowings();
+
+
+
+
+
+
